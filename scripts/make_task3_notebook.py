@@ -43,7 +43,12 @@ FIGURES = REPORTS / 'figures'
 pd.set_option('display.max_columns', 100)
 """
         ),
-        markdown_cell("## Assignment Logic\n\nThe filter removes trades after large liquidations when trade side matches liquidation side. Bybit liquidations are shifted by `+200 ms` before matching."),
+        markdown_cell(
+            "## Assignment Logic\n\n"
+            "The filter removes trades after large liquidations when the passive maker fill side matches the liquidation side. "
+            "Because `trades.side` is the taker side, this is implemented as taker trade side being opposite to liquidation side. "
+            "Bybit liquidations are shifted by `+200 ms` before matching."
+        ),
         code_cell(
             """solution_path = ROOT / 'src' / 'task3_solution.py'
 print(solution_path)
